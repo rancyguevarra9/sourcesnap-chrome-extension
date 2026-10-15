@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SourceSnap</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <main>
+      <header>
+        <div>
+          <p class="eyebrow">SOURCE LIBRARY</p>
+          <h1>SourceSnap</h1>
+          <p id="source-count" class="subtitle">Your saved web excerpts</p>
+        </div>
+        <span class="mark" aria-hidden="true">S</span>
+      </header>
+
+      <label class="search-label" for="search">Search sources</label>
+      <input id="search" type="search" placeholder="Quote, title, or website" autocomplete="off" />
+
+      <div class="toolbar">
+        <label class="select-visible"><input id="select-visible" type="checkbox" /> Select visible</label>
+        <div class="citation-actions">
+          <label for="citation-style">Citation style</label>
+          <select id="citation-style" aria-label="Citation style">
+            <option value="apa">APA</option>
+            <option value="mla">MLA</option>
+            <option value="chicago">Chicago</option>
+            <option value="harvard">Harvard</option>
+            <option value="ieee">IEEE</option>
+            <option value="vancouver">Vancouver</option>
+            <option value="simple">Simple</option>
+          </select>
+          <button id="export-button" class="text-button" disabled>Copy selected</button>
+        </div>
+      </div>
+
+      <section id="source-list" aria-live="polite"></section>
+      <template id="source-template">
+        <article class="source-card">
+          <label class="select-source"><input type="checkbox" class="source-checkbox" /><span class="check-label">Select source</span></label>
+          <blockquote class="quote"></blockquote>
+          <a class="source-title" target="_blank" rel="noreferrer"></a>
+          <div class="metadata"><span class="domain"></span><span class="date"></span></div>
+          <button class="delete-button" aria-label="Delete saved source">Delete</button>
+        </article>
+      </template>
+
+      <section id="empty-state" class="empty-state" hidden>
+        <div class="empty-icon">⌘</div>
+        <h2>No saved sources yet</h2>
+        <p>Highlight and copy text on any webpage. SourceSnap will save the text and its original link here.</p>
+      </section>
+    </main>
+    <script src="popup.js"></script>
+  </body>
+</html>

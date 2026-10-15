@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "SourceSnap",
+  "version": "1.0.0",
+  "description": "Save copied web text with its source, URL, and capture time.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "SourceSnap",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
